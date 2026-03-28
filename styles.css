@@ -1,0 +1,222 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --crt-bg: #070a08;
+  --crt-panel: #0c100d;
+  --crt-border: #1a3d28;
+  --crt-phosphor: #5ee397;
+  --crt-phosphor-bright: #9effc0;
+  --crt-phosphor-dim: #2d6b45;
+  --crt-muted: #6b9e7e;
+  --crt-bar-track: #0f1f14;
+  --crt-glow: 0 0 8px rgba(94, 227, 151, 0.35);
+  --bar-fill: var(--crt-phosphor-bright);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  font-family:
+    ui-monospace, "Cascadia Code", "SF Mono", Menlo, Monaco, Consolas, monospace;
+  background: var(--crt-bg);
+  color: var(--crt-phosphor);
+  text-shadow: var(--crt-glow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-row__fill {
+    transition: none;
+  }
+}
+
+.stat-panel {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  width: 100%;
+  background: var(--crt-panel);
+  border: 1px solid var(--crt-border);
+  border-radius: 2px;
+  box-shadow:
+    0 0 0 1px rgba(94, 227, 151, 0.08),
+    0 16px 48px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+
+.stat-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    transparent 0,
+    transparent 2px,
+    rgba(0, 0, 0, 0.14) 2px,
+    rgba(0, 0, 0, 0.14) 4px
+  );
+}
+
+.stats {
+  position: relative;
+  z-index: 2;
+  padding: 1.1rem 1.25rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.stats__header {
+  border-bottom: 1px solid var(--crt-border);
+  padding-bottom: 0.65rem;
+}
+
+.stats__nav {
+  margin: 0.5rem 0 0;
+  font-size: 0.68rem;
+  text-shadow: none;
+}
+
+.stats__nav a {
+  color: var(--crt-phosphor-dim);
+}
+
+.stats__nav a:hover {
+  color: var(--crt-phosphor-bright);
+}
+
+.stats__name {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--crt-phosphor-bright);
+}
+
+.panel-legend {
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--crt-border);
+  background: rgba(15, 31, 20, 0.6);
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: var(--crt-muted);
+  text-shadow: none;
+}
+
+.panel-legend__title {
+  margin: 0 0 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--crt-phosphor);
+}
+
+.panel-legend__scale {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.panel-legend__scale li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.5rem;
+}
+
+.panel-legend__range {
+  color: var(--crt-phosphor-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: minmax(0, 10.5rem) 1fr 2.25rem;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.stat-row__label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--crt-muted);
+  line-height: 1.2;
+}
+
+.stat-row__track {
+  height: 10px;
+  background: var(--crt-bar-track);
+  border-radius: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(94, 227, 151, 0.12);
+}
+
+.stat-row__fill {
+  height: 100%;
+  border-radius: 0;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--bar-fill) 70%, #052210),
+    var(--bar-fill)
+  );
+  box-shadow: 0 0 10px color-mix(in srgb, var(--bar-fill) 40%, transparent);
+  transition: width 0.35s ease;
+}
+
+.stat-row__value {
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--crt-phosphor-bright);
+}
+
+.stat-block__detail {
+  margin: 0;
+  padding-left: 0.55rem;
+  border-left: 2px solid var(--crt-phosphor-dim);
+  font-size: 0.65rem;
+  line-height: 1.5;
+  color: var(--crt-muted);
+  text-shadow: none;
+}
+
+.stat-block__detail p {
+  margin: 0 0 0.35rem;
+}
+
+.stat-block__detail p:last-child {
+  margin-bottom: 0;
+}
+
+.stat-block__k {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--crt-phosphor-dim);
+  margin-bottom: 0.15rem;
+}
+
+@media (max-width: 560px) {
+  .panel-legend__scale li {
+    grid-template-columns: 1fr;
+  }
+}

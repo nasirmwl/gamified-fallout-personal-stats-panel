@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nmwl — daily checks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="entry.css" />
+  </head>
+  <body>
+    <article class="stat-panel" aria-label="Daily checklist">
+      <div class="stats">
+        <header class="stats__header">
+          <h1 class="stats__name">log entry</h1>
+        </header>
+
+        <p class="entry-lead">
+          Select the items that were true for the chosen date.
+        </p>
+
+        <form class="entry-form" id="stat-entry-form">
+          <div class="entry-date-row">
+            <label>
+              Date
+              <input type="date" name="date" id="entry-date" required />
+            </label>
+          </div>
+
+          <fieldset class="entry-section">
+            <legend>Discipline</legend>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="discipline"
+                data-key="planned_done"
+              />
+              <span>Planned work completed as intended</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="discipline"
+                data-key="meetings_friday_only"
+              />
+              <span>No meetings added beyond those planned for Friday</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="discipline"
+                data-key="wake_dedicated_time"
+              />
+              <span>Woke at my scheduled wake-up time</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="discipline"
+                data-key="daily_report_dedicated_time"
+              />
+              <span>Daily report completed at its scheduled time</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="discipline"
+                data-key="doing_unplanned_work"
+              />
+              <span>Addressed unplanned or ad hoc work as required</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="entry-section">
+            <legend>Growth</legend>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="growth"
+                data-key="deliberate_learning"
+              />
+              <span
+                >At least 25 minutes of focused reading, learning, or study (not
+                passive scrolling)</span
+              >
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="growth"
+                data-key="skill_practice"
+              />
+              <span
+                >At least 20 minutes of deliberate practice on a skill I am
+                actively improving</span
+              >
+            </label>
+            <label class="entry-check">
+              <input type="checkbox" data-section="growth" data-key="applied" />
+              <span
+                >Used something learned in the last 7 days in real work, a
+                deliverable, or a live conversation</span
+              >
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="growth"
+                data-key="reflection"
+              />
+              <span
+                >Before closing the day, wrote the first concrete action I will
+                take tomorrow</span
+              >
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="growth"
+                data-key="fe_one_hour"
+              />
+              <span>At least 1 hour of dedicated front-end (FE) work</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="growth"
+                data-key="ai_one_hour"
+              />
+              <span>At least 1 hour dedicated to AI (study or practice)</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="growth"
+                data-key="ielts_one_hour"
+              />
+              <span>At least 1 hour of IELTS practice</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="entry-section">
+            <legend>Health</legend>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="health"
+                data-key="movement_plan_done"
+              />
+              <span>Completed planned movement or training for the day</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="health"
+                data-key="mental_wellbeing_stable"
+              />
+              <span>Mental well-being felt stable today</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="health"
+                data-key="stress_manageable"
+              />
+              <span>Stress remained manageable at work and at home</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="health"
+                data-key="symptoms_proactive"
+              />
+              <span>Minor symptoms or discomfort addressed proactively</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="health"
+                data-key="breathing_today"
+              />
+              <span>Breathing exercises or intentional breathwork</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="entry-section">
+            <legend>Sleep</legend>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="sleep"
+                data-key="wake_7_00_am"
+              />
+              <span>Woke at 7:00 a.m.</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="sleep"
+                data-key="sleep_11_45_pm"
+              />
+              <span>Bedtime by 11:45 p.m.</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="entry-section">
+            <legend>Finance</legend>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="finance"
+                data-key="spent_over_10_azn"
+              />
+              <span>Did I spend more than 10 AZN today?</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="finance"
+                data-key="unplanned_payment_today"
+              />
+              <span>Did I make an unplanned payment today?</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="finance"
+                data-key="bought_something_needed"
+              />
+              <span>Did I buy something I really need today?</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="entry-section">
+            <legend>Focus</legend>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="focus"
+                data-key="deep_block"
+              />
+              <span>Protected a block for deep or focused work</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="focus"
+                data-key="priority_moved"
+              />
+              <span>Top priority moved forward meaningfully</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="focus"
+                data-key="distractions_ok"
+              />
+              <span>Distractions kept under control</span>
+            </label>
+            <label class="entry-check">
+              <input type="checkbox" data-section="focus" data-key="closure" />
+              <span
+                >Reasonable end-of-day closure (inbox, tabs, loose ends)</span
+              >
+            </label>
+          </fieldset>
+
+          <fieldset class="entry-section">
+            <legend>Social</legend>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="relationships"
+                data-key="real_contact"
+              />
+              <span>Meaningful live contact with someone important</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="relationships"
+                data-key="showed_up"
+              />
+              <span>Fulfilled a commitment to someone</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="relationships"
+                data-key="honesty_repair"
+              />
+              <span>Honesty or repair where it mattered</span>
+            </label>
+            <label class="entry-check">
+              <input
+                type="checkbox"
+                data-section="relationships"
+                data-key="boundaries"
+              />
+              <span
+                >Time and emotional boundaries respected (mine or theirs)</span
+              >
+            </label>
+          </fieldset>
+
+          <div class="entry-actions">
+            <button type="submit">Save entry</button>
+          </div>
+        </form>
+
+        <p id="entry-status" role="status" aria-live="polite"></p>
+
+        <p class="entry-footer">
+          <a href="index.html">Back to summary panel</a>
+        </p>
+      </div>
+    </article>
+
+    <script>
+      (function () {
+        var STORAGE_KEY = "nmwl-daily-checks";
+
+        function todayLocalISO() {
+          var d = new Date();
+          var y = d.getFullYear();
+          var m = String(d.getMonth() + 1).padStart(2, "0");
+          var day = String(d.getDate()).padStart(2, "0");
+          return y + "-" + m + "-" + day;
+        }
+
+        function loadLog() {
+          try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+          } catch (e) {
+            return {};
+          }
+        }
+
+        function saveLog(log) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(log));
+        }
+
+        function allCheckboxes() {
+          return Array.prototype.slice.call(
+            document.querySelectorAll(
+              '#stat-entry-form input[type="checkbox"][data-section][data-key]',
+            ),
+          );
+        }
+
+        function fillFromStorage(dateStr) {
+          var log = loadLog();
+          var day = log[dateStr];
+          allCheckboxes().forEach(function (el) {
+            var sec = el.getAttribute("data-section");
+            var key = el.getAttribute("data-key");
+            var v;
+            if (day && day[sec] && typeof day[sec][key] === "boolean") {
+              v = day[sec][key];
+            } else if (
+              day &&
+              day.expenditure &&
+              sec === "finance" &&
+              typeof day.expenditure[key] === "boolean"
+            ) {
+              v = day.expenditure[key];
+            } else {
+              v = false;
+            }
+            el.checked = v;
+          });
+        }
+
+        function buildEntryFromForm() {
+          var entry = {};
+          allCheckboxes().forEach(function (el) {
+            var sec = el.getAttribute("data-section");
+            var key = el.getAttribute("data-key");
+            if (!entry[sec]) entry[sec] = {};
+            entry[sec][key] = el.checked;
+          });
+          return entry;
+        }
+
+        var dateInput = document.getElementById("entry-date");
+        var form = document.getElementById("stat-entry-form");
+        var statusEl = document.getElementById("entry-status");
+
+        dateInput.value = todayLocalISO();
+        fillFromStorage(dateInput.value);
+
+        dateInput.addEventListener("change", function () {
+          fillFromStorage(dateInput.value);
+          statusEl.textContent = "";
+        });
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var dateStr = dateInput.value;
+          if (!dateStr) {
+            statusEl.textContent = "Please select a date.";
+            return;
+          }
+
+          var log = loadLog();
+          log[dateStr] = buildEntryFromForm();
+          saveLog(log);
+          statusEl.textContent = "Entry saved for " + dateStr + ".";
+        });
+      })();
+    </script>
+  </body>
+</html>
