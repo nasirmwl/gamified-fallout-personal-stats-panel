@@ -7,4 +7,6 @@ Use it as a template: swap text, numbers, `avatar.svg`, and checklist items to m
 ### Features planned to be included
 - char percentages connection to supabase logs to reflect more realistic percentages
 - percentage calculations based on logs from supabase
+- styling refactor 
+- integration to nmwldb personalized [dashboard](https://github.com/nasirmwl/personal-dashboard-web)  
 
