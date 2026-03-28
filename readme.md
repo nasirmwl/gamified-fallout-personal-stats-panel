@@ -4,7 +4,7 @@ This repo is **boilerplate / a starting point** for a small static “stats” U
 
 Use it as a template: swap text, numbers, `avatar.svg`, and checklist items to match what you actually track.
 
-###Features planned to inclueded
+### Features planned to inclueded
 - char percentages connection to supabase logs to reflect more realistic percentages
 - percentage calculations based on logs from supabase
 
